@@ -7,8 +7,6 @@ import {
 } from 'is-it-shabbat-core';
 import { is } from 'shabbat-logic';
 
-import './App.css';
-
 import initialize from './initialization';
 import IsItShabbat from './components/IsItShabbat';
 
