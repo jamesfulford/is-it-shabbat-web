@@ -5,6 +5,7 @@ import {
   state,
   localization,
 } from 'is-it-shabbat-core';
+import { is } from 'shabbat-logic';
 
 import './App.css';
 
@@ -25,7 +26,7 @@ const Uninitialized = () => (
   <span id="byline">
     <span id="days-left">-</span>
     <br />
-    <span id="day-or-days">{translate.endEventName.NOT_SHABBAT}</span>
+      <span id="day-or-days">{translate.endEventName[is.NOT_SHABBAT]}</span>
   </span>
   </>
 );

@@ -1,19 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { DateTime } from 'luxon';
 import { connect } from 'react-redux';
 
 import {
     action,
     localization,
     components,
-    utilities,
 } from 'is-it-shabbat-core';
 
 import { underAWeek } from '../utilities/formatDuration';
 
 const { ShabbatCheck, CountDown } = components;
 const { en: { translate } } = localization;
-const { DateTime } = utilities;
 
 const IsItShabbat = ({ now, location, dispatch }) => (
     <ShabbatCheck now={ now } location = { location }>

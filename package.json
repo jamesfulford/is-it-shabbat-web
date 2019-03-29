@@ -23,5 +23,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "peerDependencies": {
+    "luxon": "^1.12.0",
+    "shabbat-logic": "^1.0.0"
+  }
 }
