@@ -1,43 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { DateTime } from 'luxon';
 import { connect } from 'react-redux';
+import i18n from 'i18n-js';
 
 import {
     action,
-    localization,
     components,
+    utilities,
 } from 'is-it-shabbat-core';
 
-import { underAWeek } from '../utilities/formatDuration';
-
+const { DateTime, underAWeek } = utilities;
 const { ShabbatCheck, CountDown } = components;
-const { en: { translate } } = localization;
 
-const IsItShabbat = ({ now, location, dispatch }) => (
+const IsItShabbat = ({ now, location, dispatch }) => {
+    const [ showCount, setShowCount ] = useState(true);
+    return (
     <ShabbatCheck now={ now } location = { location }>
         {(period, countDownTo) => (
             <>
-            <span id="is-it">{translate.status[period]}</span>
-            <span id="byline" >
-                    <CountDown
-                        end={countDownTo}
-                        start={now}
-                        callback={end => dispatch(action.setNow(end))}
-                    >
-                        {dur => (
-                            <>
-                                <span id="days-left">{underAWeek(dur)}</span>
-                            <br />
-                            <span id="day-or-days">{translate.endEventName[period]}</span>
-                            </>
-                        )}
-                    </CountDown>
+            <span id="is-it">{i18n.t(`status.${period}`)}</span>
+            <span id="byline" onClick={() => setShowCount(!showCount)}>
+                {
+                    showCount
+                    ? (
+                        <CountDown
+                            end={countDownTo}
+                            start={now}
+                            callback={end => dispatch(action.setNow(end))}
+                        >
+                            {dur => (
+                                <span id="day-or-days">{i18n.t(
+                                    `endEventName.${period}`,
+                                    { duration: underAWeek(dur) },
+                                )}</span>
+                            )}
+                        </CountDown>
+                    ) : (
+                        <span id="days-left">{i18n.t(
+                            `startEventName.${period}`,
+                            {
+                                end: countDownTo.toLocaleString({
+                                    month: 'short',
+                                    day: '2-digit',
+                                    hour: '2-digit',
+                                    minute: '2-digit',
+                                }),
+                            },
+                        )}</span>
+                    )
+                }
+
             </span>
             </>
         )}
     </ShabbatCheck>
-);
+    );
+}
 IsItShabbat.propTypes = {
     now: PropTypes.instanceOf(DateTime).isRequired,
     location: PropTypes.shape({

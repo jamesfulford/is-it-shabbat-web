@@ -18,7 +18,7 @@ body {
   font-size: 50px;
   display: block;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 50px;
   color: var(--color);
 }
 
@@ -34,23 +34,27 @@ body {
 
 /* X Day(s) Until Shabbat */
 #byline {
+  width: 50%;
+  margin: auto;
   font-family: Fredoka One;
-  font-size: 80px;
+  font-size: 64px;
   display: block;
   text-align: center;
   color: var(--color);
 }
 
 /* the exact X */
-#days-left {
-  text-shadow: 0px 0px 2px var(--color-2);
+#days-left,
+#day-or-days {
+  font-size: 65px;
+}
 }
 
 /* Hebrew in the back: don't touch this it was hard to get */
 #hebrew {
   font-family: Suez One;
   color: rgba(0, 0, 0, 0.1);
-  font-size: 200px;
+  font-size: 180px;
   position: absolute;
   right: 20px;
   top: 20px;

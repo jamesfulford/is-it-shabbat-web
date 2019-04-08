@@ -3,14 +3,10 @@ import { Provider } from 'react-redux';
 
 import {
   state,
-  localization,
 } from 'is-it-shabbat-core';
-import { is } from 'shabbat-logic';
 
 import initialize from './initialization';
 import IsItShabbat from './components/IsItShabbat';
-
-const { en: { translate } } = localization;
 
 const SETUP_STATE = {
   SETUP_NEEDED: 0,
@@ -22,9 +18,7 @@ const Uninitialized = () => (
   <>
   <span id="is-it">-</span>
   <span id="byline">
-    <span id="days-left">-</span>
-    <br />
-      <span id="day-or-days">{translate.endEventName[is.NOT_SHABBAT]}</span>
+    <span id="day-or-days">-</span>
   </span>
   </>
 );
