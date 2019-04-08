@@ -48,6 +48,14 @@ body {
 #day-or-days {
   font-size: 65px;
 }
+
+#copyright {
+  font-family: Fredoka One;
+  font-size: 18;
+  display: block;
+  text-align: center;
+  margin-top: 50px;
+  color: var(--color);
 }
 
 /* Hebrew in the back: don't touch this it was hard to get */
