@@ -18,6 +18,7 @@ const getLocationAsync = () => new Promise((resolve) => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             (location) => {
+                console.info('Location:', location);
                 resolve(location);
             },
             () => resolve(defaultLocation),
