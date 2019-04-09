@@ -12,7 +12,7 @@ import {
 const { DateTime, underAWeek } = utilities;
 const { ShabbatCheck, CountDown } = components;
 
-const IsItShabbat = ({ now, location, dispatch }) => {
+export const IsItShabbatPure = ({ now, location, dispatch }) => {
     const [ showCount, setShowCount ] = useState(true);
     return (
     <ShabbatCheck now={ now } location = { location }>
@@ -56,7 +56,7 @@ const IsItShabbat = ({ now, location, dispatch }) => {
     </ShabbatCheck>
     );
 }
-IsItShabbat.propTypes = {
+IsItShabbatPure.propTypes = {
     now: PropTypes.instanceOf(DateTime).isRequired,
     location: PropTypes.shape({
         coords: PropTypes.shape({
@@ -72,4 +72,4 @@ export default connect(
         now: state.now,
         location: state.location,
     }),
-)(IsItShabbat);
+)(IsItShabbatPure);
