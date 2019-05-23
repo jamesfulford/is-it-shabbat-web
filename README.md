@@ -2,7 +2,7 @@
 "Is It Shabbat?" is a progressive web app to connect you with God's holy days.
 
 [Download the iOS App!](https://itunes.apple.com/us/app/is-it-shabbat/id1435157805)
-[View the Web App!](https://isitshabbat.org)
+[View the Web App!](https://isitshabbat.net)
 
 - The Sabbath (roughly Friday sunset to Saturday sunset)
 - Major holidays on the modern Hebrew calendar
