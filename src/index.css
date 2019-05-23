@@ -47,6 +47,7 @@ body {
 #days-left,
 #day-or-days {
   font-size: 65px;
+  font-variant-numeric: tabular-nums;
 }
 
 #copyright {
