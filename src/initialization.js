@@ -16,7 +16,7 @@ const defaultLocation = {
 };
 
 const getLocationAsync = () => new Promise((resolve) => {
-    if (this.navigator && navigator.geolocation) {
+    if (window.navigator && navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             (location) => {
                 console.info('Location:', location);
@@ -33,7 +33,7 @@ const getLocationAsync = () => new Promise((resolve) => {
 
 export default async () => Promise.all([
     Promise.resolve(() => {
-        i18n.locale = (this.navigator && navigator.language) || 'en';
+        i18n.locale = (window.navigator && navigator.language) || 'en';
     }),
     getLocationAsync().then((location) => {
         const act = action.initialize(
